@@ -178,7 +178,7 @@ CLASS_NAMES = [
 
 # TODO: Set this to whatever input size your model expects (check your
 # training code, e.g. img_height, img_width used with ImageDataGenerator).
-IMAGE_SIZE = (224, 224)
+IMAGE_SIZE = (160, 160)
 
 # TODO: Fill in real nutrition data for each class above.
 # Values are per typical serving — adjust to your needs.
