@@ -246,13 +246,11 @@ def predict(image: Image.Image):
 # ──────────────────────────────────────────────────────────────
 # HEADER
 # ──────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="app-header">
-    <div class="app-header-icon">🥗</div>
-    <h1>NutriVision AI</h1>
-</div>
-<p class="subtitle">Upload a photo of your food to see what's in it.</p>
-""", unsafe_allow_html=True)
+st.markdown(
+    '<div class="app-header"><div class="app-header-icon">🥗</div><h1>NutriVision AI</h1></div>'
+    '<p class="subtitle">Upload a photo of your food to see what\'s in it.</p>',
+    unsafe_allow_html=True,
+)
 
 # ──────────────────────────────────────────────────────────────
 # UPLOAD
@@ -297,32 +295,20 @@ if uploaded_file is not None:
 
     if nutrition:
         badge_class, badge_label = health_badge(nutrition["calories"])
-        st.markdown(f"""
-        <div class="result-top-row">
-            <p class="dish-name">{dish.title()}</p>
-            <span class="badge badge-{badge_class}">{badge_label}</span>
-        </div>
-        <p class="confidence-note">{confidence:.1f}% confidence</p>
-
-        <div class="nutrient-grid">
-            <div class="nutrient-box">
-                <div class="nutrient-value">{nutrition['calories']}</div>
-                <div class="nutrient-label">Kcal</div>
-            </div>
-            <div class="nutrient-box">
-                <div class="nutrient-value">{nutrition['protein']}g</div>
-                <div class="nutrient-label">Protein</div>
-            </div>
-            <div class="nutrient-box">
-                <div class="nutrient-value">{nutrition['carbs']}g</div>
-                <div class="nutrient-label">Carbs</div>
-            </div>
-            <div class="nutrient-box">
-                <div class="nutrient-value">{nutrition['fat']}g</div>
-                <div class="nutrient-label">Fat</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="result-top-row">'
+            f'<p class="dish-name">{dish.title()}</p>'
+            f'<span class="badge badge-{badge_class}">{badge_label}</span>'
+            f'</div>'
+            f'<p class="confidence-note">{confidence:.1f}% confidence</p>'
+            f'<div class="nutrient-grid">'
+            f'<div class="nutrient-box"><div class="nutrient-value">{nutrition["calories"]}</div><div class="nutrient-label">Kcal</div></div>'
+            f'<div class="nutrient-box"><div class="nutrient-value">{nutrition["protein"]}g</div><div class="nutrient-label">Protein</div></div>'
+            f'<div class="nutrient-box"><div class="nutrient-value">{nutrition["carbs"]}g</div><div class="nutrient-label">Carbs</div></div>'
+            f'<div class="nutrient-box"><div class="nutrient-value">{nutrition["fat"]}g</div><div class="nutrient-label">Fat</div></div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
 
         # Macro breakdown as % of calories (protein/carbs = 4 kcal/g, fat = 9 kcal/g)
         p_cal = nutrition["protein"] * 4
@@ -338,17 +324,17 @@ if uploaded_file is not None:
 
         rows_html = '<p class="macro-title">Macro breakdown</p>'
         for name, pct, color in macros:
-            rows_html += f"""
-            <div class="macro-row">
-                <div class="macro-row-labels">
-                    <span class="macro-row-name">{name}</span>
-                    <span class="macro-row-pct">{pct:.0f}%</span>
-                </div>
-                <div class="macro-track">
-                    <div class="macro-fill" style="width:{pct:.0f}%; background:{color};"></div>
-                </div>
-            </div>
-            """
+            rows_html += (
+                '<div class="macro-row">'
+                '<div class="macro-row-labels">'
+                f'<span class="macro-row-name">{name}</span>'
+                f'<span class="macro-row-pct">{pct:.0f}%</span>'
+                '</div>'
+                '<div class="macro-track">'
+                f'<div class="macro-fill" style="width:{pct:.0f}%; background:{color};"></div>'
+                '</div>'
+                '</div>'
+            )
         st.markdown(rows_html, unsafe_allow_html=True)
     else:
         st.markdown(f'<p class="dish-name">{dish.title()}</p>', unsafe_allow_html=True)
