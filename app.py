@@ -165,29 +165,56 @@ st.markdown("""
 # ⚠️ CONFIGURE THESE FOR YOUR MODEL
 # ──────────────────────────────────────────────────────────────
 
-# TODO: Replace with the exact class names your model was trained on,
-# IN THE SAME ORDER as your training generator's class_indices.
+# These are your model's actual trained classes, in alphabetical order
+# (matches Keras' default folder-based class indexing).
 CLASS_NAMES = [
-    "pizza",
-    "burger",
-    "salad",
-    "pasta",
-    "sushi",
-    # ... add the rest of your actual classes here
+    "aloo gobi",
+    "aloo matar",
+    "aloo tikki",
+    "biryani",
+    "butter chicken",
+    "chana masala",
+    "chicken tikka",
+    "chicken tikka masala",
+    "dal makhani",
+    "dal tadka",
+    "gulab jamun",
+    "jalebi",
+    "kadai paneer",
+    "naan",
+    "palak paneer",
+    "paneer butter masala",
+    "poha",
+    "rasgulla",
+    "shrikhand",
 ]
 
 # TODO: Set this to whatever input size your model expects (check your
 # training code, e.g. img_height, img_width used with ImageDataGenerator).
 IMAGE_SIZE = (160, 160)
 
-# TODO: Fill in real nutrition data for each class above.
-# Values are per typical serving — adjust to your needs.
+# TODO: These are rough per-serving estimates — replace with more precise
+# values if you have a specific source or serving size in mind.
 NUTRITION_DB = {
-    "pizza":  {"calories": 285, "protein": 12, "carbs": 36, "fat": 10},
-    "burger": {"calories": 354, "protein": 17, "carbs": 29, "fat": 20},
-    "salad":  {"calories": 152, "protein": 5,  "carbs": 12, "fat": 10},
-    "pasta":  {"calories": 221, "protein": 8,  "carbs": 43, "fat": 1.3},
-    "sushi":  {"calories": 200, "protein": 9,  "carbs": 38, "fat": 0.7},
+    "aloo gobi":            {"calories": 180, "protein": 4,  "carbs": 22, "fat": 9},
+    "aloo matar":           {"calories": 190, "protein": 5,  "carbs": 24, "fat": 8},
+    "aloo tikki":           {"calories": 210, "protein": 4,  "carbs": 28, "fat": 10},
+    "biryani":              {"calories": 350, "protein": 12, "carbs": 45, "fat": 12},
+    "butter chicken":       {"calories": 490, "protein": 27, "carbs": 12, "fat": 36},
+    "chana masala":         {"calories": 210, "protein": 9,  "carbs": 30, "fat": 6},
+    "chicken tikka":        {"calories": 230, "protein": 28, "carbs": 4,  "fat": 11},
+    "chicken tikka masala": {"calories": 440, "protein": 26, "carbs": 14, "fat": 30},
+    "dal makhani":          {"calories": 280, "protein": 11, "carbs": 26, "fat": 15},
+    "dal tadka":            {"calories": 180, "protein": 9,  "carbs": 24, "fat": 6},
+    "gulab jamun":          {"calories": 300, "protein": 4,  "carbs": 45, "fat": 12},
+    "jalebi":               {"calories": 310, "protein": 2,  "carbs": 55, "fat": 9},
+    "kadai paneer":         {"calories": 320, "protein": 14, "carbs": 12, "fat": 25},
+    "naan":                 {"calories": 260, "protein": 8,  "carbs": 45, "fat": 5},
+    "palak paneer":         {"calories": 290, "protein": 13, "carbs": 10, "fat": 22},
+    "paneer butter masala": {"calories": 400, "protein": 15, "carbs": 14, "fat": 31},
+    "poha":                 {"calories": 180, "protein": 4,  "carbs": 30, "fat": 5},
+    "rasgulla":             {"calories": 186, "protein": 4,  "carbs": 33, "fat": 4},
+    "shrikhand":            {"calories": 220, "protein": 6,  "carbs": 30, "fat": 8},
 }
 
 MODEL_PATH = "model/food_model.keras"
